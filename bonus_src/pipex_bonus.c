@@ -50,7 +50,7 @@ void here_doc(char **argv)
   }
 }
 
-void make_pipe(char *cmd,char *env)
+void make_pipe(char *cmd,char **env)
 {
   pid_t pid;
   int p_fd[2];

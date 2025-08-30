@@ -12,7 +12,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 
-int		open_file(char *file, int n);
+int		open_file(char *file, int In_Out);
 char	*my_getenv(char *name, char **env);
 char	*get_path(char *cmd, char **env);
 void	exec(char *cmd, char **env);

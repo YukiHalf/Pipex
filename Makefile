@@ -1,36 +1,32 @@
 NAME = pipex
 
-SRCS = src/pipex.c \
-			 src/utils.c \
-			 libft/libft.a\
-
-BONUS_SRCS = bonus_src/pipex_bonus.c \
-						bonus_src/pipex_bonus.h \
-						bonus_src/utils_bonus.c
-
-OBJS = $(SRCS:.c=.o)
-
-BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
-RM = rm -f
+CFLAGS = -Werror -Wall -Wextra -fsanitize=address
+RM = rm -rf
+
+SRCS = src/pipex.c src/utils.c
+SRCS_BONUS = bonus_src/pipex_bonus.c bonus_src/utils_bonus.c
+
+$(NAME): libft/libft.a $(SRCS)
+	$(CC) $(CFLAGS) $(SRCS) libft/libft.a -o $(NAME)
+
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+bonus: libft/libft.a $(SRCS_BONUS)
+	$(CC) $(CFLAGS) $(SRCS_BONUS) libft/libft.a -o $(NAME)
+
+libft/libft.a:
+	make -C libft
 
 clean:
-	$(RM) $(OBJS) $(BONUS_OBJS)
+	$(RM) *.o
+	make clean -C libft
 
 fclean: clean
 	$(RM) $(NAME)
+	make fclean -C libft
 
 re: fclean all
 
-bonus: ${OBJS} ${BONUS_OBJS}
-	ar rcs ${NAME} ${OBJS} ${BONUS_OBJS}
-
 .PHONY: all clean fclean re bonus
-

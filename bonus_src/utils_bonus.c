@@ -1,4 +1,4 @@
-#include "../inc/pipex.h"
+#include "pipex_bonus.h"
 
 int open_file(char *file ,int In_Out)
 {
