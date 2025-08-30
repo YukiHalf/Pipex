@@ -26,6 +26,7 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+int   *get_next_line(int fd);
 int		ft_atoi(const char *str);
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
