@@ -84,7 +84,7 @@ char	*read_file(int fd, char *res)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[OPEN_MAX];
+	static char	*buffer[BUFFER_SIZE];
 	char		*line;
 
 	ft_putstr_fd("> ", 1);

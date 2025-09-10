@@ -70,6 +70,7 @@ void make_pipe(char *cmd,char **env)
   {
     close(p_fd[1]);
     dup2(p_fd[0],STDIN_FILENO);
+    wait(NULL);  // Wait for the child process
   }
 }
 
