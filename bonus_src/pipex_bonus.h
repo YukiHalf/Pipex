@@ -3,14 +3,14 @@
 # define PIPEX_BONUS_H
 
 # include "../libft/libft.h"
-# include <unistd.h>
+# include <fcntl.h>
 # include <stdio.h>
+# include <stdlib.h>
+# include <sys/stat.h>
+# include <sys/types.h>
 # include <sys/types.h>
 # include <sys/wait.h>
-# include<sys/types.h>
-# include<sys/stat.h>
-# include <fcntl.h>
-# include <stdlib.h>
+# include <unistd.h>
 
 int		open_file(char *file, int In_Out);
 char	*my_getenv(char *name, char **env);
