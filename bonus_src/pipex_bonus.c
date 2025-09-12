@@ -71,7 +71,7 @@ void	make_pipe(char *cmd, char **env)
 	{
 		close(p_fd[1]);
 		dup2(p_fd[0], STDIN_FILENO);
-		wait(NULL); // Wait for the child process
+		wait(NULL);
 	}
 }
 
@@ -88,7 +88,7 @@ int	main(int argc, char **argv, char **env)
 		if (argc < 6)
 			display_error("", 1);
 		i = 3;
-		fd_out = open(argv[argc - 1], 2);
+		fd_out = open_file(argv[argc - 1], 2);
 		here_doc(argv);
 	}
 	else
